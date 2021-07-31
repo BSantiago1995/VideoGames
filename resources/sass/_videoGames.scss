@@ -1,0 +1,60 @@
+body{
+    background: linear-gradient(90deg,rgb(215, 240, 175),rgb(218, 166, 218));
+}
+nav{
+    background: rgb(71, 68, 124);
+
+}
+.navbar-light .navbar-brand{
+    font-family: $cabecera-font-family;
+    font-size: 1.5rem;
+    color:salmon;
+    &:hover{
+        color: white;
+    }
+   
+}
+.navbar-light .navbar-nav .nav-link{
+    font-family: $cabecera-font-family;
+    color:salmon;
+    &:hover{
+        color: white;
+    }
+}
+.card-header{
+    font-family: $cabecera-font-family;
+    background: rgb(71, 68, 124);
+    color:salmon;
+}
+
+.card-body{
+    font-family: $cabecera-font-family;
+    background: linear-gradient(-45deg,rgb(158, 223, 248),rgba(179, 177, 252, 0.884));
+    color:rgba(19, 4, 4, 0.973);
+}
+
+.text-center {
+    font-family: $cabecera-font-family; 
+    color:brown 
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+  }
+  img.card-img-top{
+    opacity: 0.65;
+    border-radius: 70px;
+  }
+
+h1.card-title{
+    font-family: $cabecera-font-family; 
+} 
+p.card-text{
+    font-family: $juegos-font-family; 
+    left: 25px;
+} 
