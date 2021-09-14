@@ -56,12 +56,13 @@ class VideoGamesController extends Controller
         return view('videogames.Show')->with('videogames',$videogames);
     }
     public function edit(VideoGame $videogames){
+        $this->authorize('update',$videogames);
         $categorias= DB::table('categoria_juegos')->get()->pluck('nombre','id');
         return view('VideoGames.EditPlay')->with('categorias',$categorias)
                                           ->with('videogames',$videogames);
     }
     public function update(Request $request,VideoGame $videogames){
-
+        $this->authorize('update',$videogames);
         $data = $request -> validate([
             'nombre'=> 'required|min:10',
             'price'=> 'required|numeric',
@@ -89,6 +90,10 @@ class VideoGamesController extends Controller
             }
         $videogames->save();
         return redirect()-> action([VideoGamesController::class, 'index']);
+    }
+    public function destroy(VideoGame $videogames){
+        $this->authorize('delete',$videogames);
+        return "archivo eliminado";
     }
 }
 

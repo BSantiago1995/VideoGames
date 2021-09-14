@@ -12,12 +12,13 @@ class VideoGame extends Model
         'price',
         'quantity',
         'photo',
+        'user:id',
         'categoria_id'
     ];
      //obtener la categoria mediante la clave foranea
      public function categoriaJuego(){
         //relacion de uno a uno
-        return $this->belongsTo(categoriaJuego::class,'categoria_id');
+        return $this->belongsTo(CategoriaJuego::class,'categoria_id');
     }
     public function UserVideogames(){
         //relacion de uno a uno

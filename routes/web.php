@@ -27,5 +27,6 @@ Route::post('/VideoGames/store', [VideoGamesController::class, 'store'])->name('
 Route::get('/VideoGames/{videogames}',[VideoGamesController::class, 'show'])->name('VideoGames.Show');
 Route::get('/VideoGames/{videogames}/edit',[VideoGamesController::class, 'edit'])->name('VideoGames.Edit');
 Route::put('/VideoGames/{videogames}', [VideoGamesController::class, 'update'])->name('VideoGames.update');
+Route::delete('/VideoGames/{videogames}', [VideoGamesController::class, 'destroy'])->name('VideoGames.destroy');
 Auth::routes();
 

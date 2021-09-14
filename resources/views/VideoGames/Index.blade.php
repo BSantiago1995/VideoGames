@@ -42,9 +42,11 @@
                             <i class="far fa-edit"></i>&nbsp&nbspEditar</a>
                         </div>
                         <div class="col-3">
-                            <a href="" class="btn btn-danger">
-                            <i class="fas fa-trash-alt"></i>&nbspEliminar</a>
-                        </div>
+                          <div class="input-container">
+                              <i class="fas fa-trash-alt icon"></i>
+                            <eliminar-videogame videogames-Id={{$games->id}}></eliminar-videogame>
+                            </div>  
+                         </div>
             
             </div>
             </td>              

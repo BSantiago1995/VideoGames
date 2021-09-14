@@ -25,7 +25,7 @@ class CreateVideoGamesTable extends Migration
             $table->integer('quantity');
             $table->string('photo');
             $table ->foreignId('user_id')->references('id')->on('users'); 
-            $table ->foreignId('categoria_id') ->references('id') ->on('categorias_Juego');
+            $table ->foreignId('categoria_id') ->references('id') ->on('categoria_juegos');
             $table->timestamps();
         });
     }

@@ -10067,3 +10067,16 @@ p.card-text {
   font-family: "Otomanopee One", sans-serif;
   left: 25px;
 }
+
+.icon {
+  color: white;
+  align-items: center;
+}
+
+.input-container:hover {
+  background-color: #f3352e;
+}
+
+.input-container {
+  background: #E3342F;
+}

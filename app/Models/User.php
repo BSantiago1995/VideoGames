@@ -45,4 +45,14 @@ class User extends Authenticatable
     public function userVideo(){
         return $this-> hasMany(VideoGame::class);
     }
+    protected static function booted(){
+        parent::booted();
+        static::created(function($user){
+            $user->userPerfil()->create();
+        });
+    }
+    //relacion 1-1 perfil-usuario
+    public function userPerfil(){
+        return $this-> hasOne(Perfil::class);
+    }
 }
