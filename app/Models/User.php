@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\VideoGame;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,10 @@ class User extends Authenticatable
     //relacion 1-1 perfil-usuario
     public function userPerfil(){
         return $this-> hasOne(Perfil::class);
+    }
+
+    public function iLike(){
+        //relacion e n-n
+        return $this->belongsToMany(VideoGame::class,'like_videogames');
     }
 }

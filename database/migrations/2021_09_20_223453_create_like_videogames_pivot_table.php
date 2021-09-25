@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePerfilsTable extends Migration
+class CreateLikeVideogamesPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreatePerfilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('perfils', function (Blueprint $table) {
+        Schema::create('like_videogames', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->String('telefono')->nullable();
-            $table->date('Fecha_nacimiento')->nullable();
-            $table->text('Description')->nullable();
-            $table->string('imagen')->nullable();
+            $table->foreignId('video_game_id')->references('id')->on('video_games');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreatePerfilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perfils');
+        Schema::dropIfExists('like_videogames');
     }
 }

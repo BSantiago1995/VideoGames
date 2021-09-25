@@ -20,8 +20,10 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.use(VueSweetalert2);
+Vue.config.ignoredElements=['trix-editor','trix-toolbar'];
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('eliminar-videogame', require('./components/EliminarVideoGame.vue').default);
+Vue.component('like-button', require('./components/LikeButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,6 +33,11 @@ Vue.component('eliminar-videogame', require('./components/EliminarVideoGame.vue'
 
 const app = new Vue({
     el: '#app',
+});
+
+
+$('.like-btn').on('click', function() {
+  $(this).toggleClass('like-active');
 });
 
 

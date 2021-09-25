@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('botones')
-<div class="col-md-10 mx-auto p-3">
-    <a class="btn btn-primary" href="{{route('VideoGames.Index')}}">Volver a Menú</a>
-</div>
+    <div class="col-md-10 mx-auto p-3">
+        @include('ui.menuvolver')
+    </div>
 @endsection
 
 @section('content')

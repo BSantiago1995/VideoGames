@@ -1,8 +1,12 @@
 <?php
 
-use App\Http\Controllers\VideoGamesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\VideoGamesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
 
 Route::get('/VideoGames',[VideoGamesController::class, 'index'])->name('VideoGames.Index');
 Route::get('/VideoGames/CreatePlay',[VideoGamesController::class, 'create'])->name('VideoGames.CreatePlay');
@@ -28,5 +32,13 @@ Route::get('/VideoGames/{videogames}',[VideoGamesController::class, 'show'])->na
 Route::get('/VideoGames/{videogames}/edit',[VideoGamesController::class, 'edit'])->name('VideoGames.Edit');
 Route::put('/VideoGames/{videogames}', [VideoGamesController::class, 'update'])->name('VideoGames.update');
 Route::delete('/VideoGames/{videogames}', [VideoGamesController::class, 'destroy'])->name('VideoGames.destroy');
+//Perfiles
+Route::get('/perfiles/{perfil}', [PerfilController::class, 'show'])->name('perfiles.show');
+Route::get('/perfiles/{perfil}/edit', [PerfilController::class, 'edit'])->name('perfiles.edit');
+Route::put('/perfiles/{perfil}', [PerfilController::class, 'update'])->name('perfiles.update');
+
+//likes
+Route::post('/VideoGames/{videogames}', [LikeController::class,'update'])->name('likes.update');
+Route::get('/home',[HomeController::class, 'index'])->name('home.index');
 Auth::routes();
 

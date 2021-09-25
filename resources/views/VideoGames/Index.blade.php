@@ -3,8 +3,9 @@
 
 @section('botones')
     <div class="col-md-10 mx-auto p-3">
-        <a class="btn btn-primary" href="{{route('VideoGames.CreatePlay')}}">Administrar Juego</a>
+        @include('Ui.Navegacion')
     </div>
+   
 @endsection
 
 @section('content')
@@ -54,7 +55,27 @@
             @endforeach
         </tbody>
     </table>
+    <div class="col-12 mt-4 justify-content-center d-flex">
+        {{$userGames->links()}}
+    </div>  
 </div>
+<h2 class="text-center my-5">Recetas que te gustan</h2>
+    
+        <div class="col-md-8 mx-auto bg-white p-3" style="background: linear-gradient(90deg,rgb(5, 5, 5),rgb(24, 24, 24));">
+          <ul class="list-group" >
+            @if(count($likeusu)>0)
+            @foreach ($likeusu as $likeusuario)
+               <li class="list-group-item d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg,rgb(44, 44, 44),rgb(46, 46, 46));">
+                   <h3 class="text-white">{{$likeusuario->name}}</h3>
+                   <a class="btn btn-outline-success text-uppercase font-weight-bold  align-items-left" href="{{route('VideoGames.Show',['videogames'=>$likeusuario->id])}}">Ver</a>
+               </li>
+            @endforeach
+           @else
+           <p class="text-center w-100">No existen recetas aún...</p>
+           @endif  
+          </ul>
+        </div>
+
 @endsection
 <!-- script-->
 @section('script')

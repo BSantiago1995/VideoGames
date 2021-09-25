@@ -16,7 +16,12 @@ class VideoGamesController extends Controller
     {
         //$videogames= VideoGame::all();
         $videogames=Auth::user()->userVideo;
-        return view('VideoGames.Index')->with('videogames',$videogames);
+        $usu_auten=Auth::user()->id;
+        $userGames=VideoGame::where('user_id',$usu_auten)->paginate(3);
+        $like_usuario=Auth::user()->ilike;
+        return view('VideoGames.Index')->with('videogames',$videogames)
+                                       ->with('userGames',$userGames)
+                                       ->with('likeusu',$like_usuario);
     }
     public function create()
     {
@@ -53,7 +58,11 @@ class VideoGamesController extends Controller
         //dd($request->all());//para visualizar todo lo que enviamos en el metodo Post
     }
     public function show(VideoGame $videogames){
-        return view('videogames.Show')->with('videogames',$videogames);
+        $like=(Auth::user())?Auth::user()->iLike->contains($videogames->id):false;
+        $likes=$videogames->likes()->count();
+        return view('videogames.Show')->with('videogames',$videogames)
+                                      ->with('like',$like)
+                                      ->with('likes',$likes);
     }
     public function edit(VideoGame $videogames){
         $this->authorize('update',$videogames);

@@ -5,6 +5,8 @@
 $font-family-sans-serif: 'Nunito', sans-serif;
 $cabecera-font-family:'Do Hyeon',sans-serif;
 $juegos-font-family: 'Otomanopee One', sans-serif;
+$perfil-font-famili:'Oswald',sans-serif;
+$textsfont-family: 'Lobster Two',cursive;
 $font-size-base: 1rem;
 $line-height-base: 1.6;
 
@@ -20,3 +22,12 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $labels:#3e4885;
+
+trix-editor{
+    min-height: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.icono{
+    width: 30px;
+}
